@@ -1,10 +1,15 @@
+import '../mount-setup';
 import React from 'react';
 import App from './App';
-import {shallow} from 'enzyme'
+import {mount} from 'enzyme'
 
 it('renders without crashing', () => {
-  var component = shallow(<App />);
+    var component = mount(<App/>);
 
-  expect(component).toBeTruthy();
+    var button = component.find('input');
+
+    button.simulate('click');
+
+    expect(component).toBeTruthy();
 
 });
